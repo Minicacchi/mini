@@ -13,16 +13,27 @@ class MyGame(arcade.Window):
 
     def setup(self):
         
-        self.sprite = arcade.Sprite("./assets/player.png")
+        self.sprite = arcade.Sprite("C:\\Users\\riccardo.cian\\Downloads\\FREE_Samurai 2D Pixel Art v1.2\\FREE_Samurai 2D Pixel Art v1.2\Sprites\IDLE.png")
 
-        self.sprite.center_x = 100
-        self.sprite.center_y = 100
+        self.sprite.center_x = 300
+        self.sprite.center_y = 300
         self.sprite.scale_x = 5.0
         self.sprite.scale_y = 5.0
 
         self.playerSpriteList.append(self.sprite)
 
-        
+
+    def on_key_press(self, key, modifiers):
+        if key == arcade.key.R:
+            self.rect_size = 50
+        if key == arcade.key.W:
+            self.rect_y+=10
+        if key == arcade.key.A:
+            self.rect_x-=10
+        if key == arcade.key.D:
+            self.rect_x+=10
+        if key == arcade.key.S:
+            self.rect_y-=10    
 
     def on_draw(self):
         self.playerSpriteList.draw()
